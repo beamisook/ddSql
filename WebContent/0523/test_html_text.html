@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+  
+    // body안의 모든 태그와 문자 가져오기
+	//alert($('body').html());
+	
+	//body안의 모든 문자만 가져오기 
+	//alert($('body').text());
+	
+	//첫번째 p안의 모든 문자와 태그를 가져오기 
+	//alert($('p').html());
+    
+	//모든 p태그안의 모든 문자만 가져오기
+	 //alert($('p').text());
+	 
+	//반복루프를 이용해서 특정 태그의 내용을 html메소드로 가져온다 
+	var value="";
+	//$('p').each(function(i){
+	//     value +=  $(this).html() + "\n";
+	//})
+    $.each($('p'), function(i){
+           value +=   (i+1)  + "번째 요소 :"  + $(this).html() + "\n";
+    })	
+    alert(value);	
+  })
+</script>
+
+<body>
+    <p>1<a>홍길동</a></p>
+	<p>2<a>개나리</a></p>
+	<p>3<a>진달래</a></p>  
+	
+	
+	<br>
+	<pre>
+	 body안의 모든 태그와 문자 가져오기
+	alert($('body').html());
+	
+	//body안의 모든 문자만 가져오기 
+	alert($('body').text());
+	
+	//첫번째 p안의 모든 문자와 태그를 가져오기 
+	alert($('p').html());
+    
+	//모든 p태그안의 모든 문자만 가져오기
+	alert($('p').text());
+	 
+	//반복루프를 이용해서 특정 태그의 내용을 html메소드로 가져온다 
+	</pre>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

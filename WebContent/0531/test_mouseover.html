@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	count = 1;
+	
+	//$('div').mouseover(function(){ })
+	$('div').bind('mouseover', function(){ 
+		
+		//rgb각각 색상을 랜덤으로 발생
+		//랜덤으로발생된 값으로 p의 글자색을 바꿈
+		r= parseInt(Math.floor(Math.random()*256));
+		g= parseInt(Math.floor(Math.random()*256));
+		b= parseInt(Math.floor(Math.random()*256));
+		
+		//$('p:eq(0)').text("MouseOver").css('color' , '#'+ r.toString(16) + g.toString(16) +b.toString(16));
+		$('p:eq(0)').text("MouseOver").css('color', 'rgb(' + r +"," +  g +","  + b +')');
+		$('p:eq(1)').text(count++);
+		//$('p').eq(0) //$('p:first')  //$('p').first()
+		
+		
+	})
+})
+</script>
+<style>
+  
+
+        div.out {
+            width: 250px;
+            height: 80px;
+            background-color: yellow;
+        }
+</style>
+</head>
+<body>
+      <div class="out">
+        <p>마우스를 여기로 움직이세요.</p>
+        <p>0</p>
+    </div>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

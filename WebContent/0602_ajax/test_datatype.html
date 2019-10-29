@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#jsonMix').click(function(){
+		$.ajax({ 
+			url : 'jsonMix.jsp',
+			success : function(res){
+				var code = "";
+				$.each(res, function(i){
+					code += (i+1) + "번째 데이타 ---------<br>"
+					code += "이름 : " + res[i].name + "<br>";
+					code += "주소 : "  + res[i].addr + "<br>";
+					code +="전화번호 : " + res[i].tel + "<br>";
+					
+				})
+				
+				$('#result').html(code);
+				
+			},
+			dataType : 'json'
+		}) 
+	})
+	//////////////////////////////////
+
+	$('#jsonObj').click(function(){
+		$.ajax({ 
+			url : 'jsonObj.jsp',
+			success : function(res){
+				var code ="";
+				code += "이 름 : "  +  res.name + "<br>";
+				code += "주 소 : "  + res.addr + "<br>";
+				code += "전화번호:" + res.tel ;
+				
+				$('#result').html(code);
+			},
+			dataType : 'json'
+		}) 
+	})
+	/////////////////////////////
+	
+	
+	 $('#jsonArr').click(function(){
+		$.ajax({ 
+			url : 'jsonArr.jsp',
+			success : function(res){
+				var code ="<ol>";
+				$.each(res, function(i) {
+				  code += "<li>" + res[i] + "</li>"	;
+				})
+				code += "</ol>";
+				$('#result').html(code);
+			},
+			dataType : 'json'
+		}) 
+	 })
+	 ///////////////////////////////////
+	 
+	
+	
+	
+	 $('#txt').click(function(){
+		 $.ajax({
+			 url : 'textData.jsp',
+			 type : 'get',
+			 success :function(res){
+				var datas = res.split("&");
+				var code ="<ul>";
+				$.each(datas, function(i){
+					 code += "<li>" + datas[i] + "</li>";
+				})
+				code += "</ul>";
+				$('#result').html(code);
+			 },
+			 dataType : 'text'
+		 })
+	 })
+	 /////////////////////////////
+	 
+})
+</script>
+</head>
+<body>
+
+ <button id="txt">TextData</button>
+ <button id="jsonArr">JsonArray</button>
+ <button id="jsonObj">JsonObject</button>
+ <button id="jsonMix">JsonMix</button>
+ 
+ <hr color='blue'>
+ <div id="result"></div>
+
+</body>
+</html>

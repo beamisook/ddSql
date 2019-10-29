@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	//p클릭 이벤트 -on(bind)
+	$('p').on('click', function(){
+		$(this).addClass('intro');
+	})
+	
+	$('button').on('click', function(){
+		$('p').off('click');
+	})
+	
+	
+})
+</script>
+<style> 
+.intro {
+    font-size: 1.5em;
+    color: red;
+ }
+</style>
+
+</head>
+<body>
+   <p> 무궁화 꽃이 피었습니다 ~~</p>
+   <button>이벤트삭제</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

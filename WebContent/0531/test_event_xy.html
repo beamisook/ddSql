@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	
+	 $(document).mousemove(function(ev){
+		 
+		   var info = "page좌표 : " +  ev.pageX  + ", " + ev.pageY + 
+		              "\nscreen좌표 : " + ev.screenX  + ", " + ev.screenY;
+	        $('#log').text(info);
+	 })
+	
+})
+</script>
+<style>
+        body {  background-color: #eef;        }
+        div  {  padding: 20px;      }
+ </style>
+
+</head>
+<body>
+      <div id="log"></div>
+</body>
+</html>
+
+
+
+
+
+

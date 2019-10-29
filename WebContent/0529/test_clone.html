@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button#clone").click(function(){
+        $("p").clone().appendTo("body");
+    });
+    
+    /////////////////////////////
+    $('p').click(function(){
+    	$(this).css('font-size', '+=2px');
+    })
+    
+    $("button#clonetrue").click(function(){
+        $("p").clone(true).appendTo("body");
+    });
+    
+});
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button id="clone">Clone </button>
+<button id='clonetrue'>Clone(true)-이벤트복사 </button>
+
+</body>
+</html>
+
+
+
+
+
+

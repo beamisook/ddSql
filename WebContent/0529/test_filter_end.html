@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$('div:odd')
+	//$('div').filter(':odd').eq(0).css('background', 'blue');
+	//$("div").filter(":odd").eq(1).css('background', 'green') ; //선택된 홀수번째중 1번째  - 3 
+	//$("div").filter(":odd").eq(2).css('background', 'pink') ; //선택된 홀수번째중 2번째  - 5
+
+	
+	$('div:odd').eq(0).css('background', 'blue' )
+	            .end().eq(1).css('background', 'green')
+	            .end().eq(2).css('background', 'pink');
+
+})
+</script>
+<style>
+div {  width:60px;
+       height:60px; 
+       margin:10px; 
+       float:left; 
+       border:2px solid blue; 
+  } 
+.orange { background:orange; } 
+
+</style>
+
+</head>
+<body>
+ 	 <div>a</div> 
+	<div>b</div> 
+	<div>c</div> 
+	<div>d</div> 
+	<div>e</div> 
+	<div class="orange">f</div> 
+	<div>g</div>
+	</body>
+</html>

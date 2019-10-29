@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace = "member">
+	<typeAlias alias="member" type="kr.or.ddit.vo.MemberVO"/>
+	<typeAlias alias="zip"  type="kr.or.ddit.vo.ZipVO"/>
+	
+	<select id = "selectMember" resultClass="member">
+		SELECT * FROM MEMBER
+	</select>
+	
+	
+	<!--  아이디 중복검사 -->
+	<select id="selectById" parameterClass="string" resultClass="string">
+	     select mem_id  from  member where mem_id = #data#
+	</select>
+	
+	<!--  가입하기 -->
+	<insert id="insertMember" parameterClass="member" >
+	   insert  into member(
+	     mem_id,
+	     mem_pass,
+	     mem_name,
+	     mem_zip,
+	     mem_add1,
+	     mem_add2,
+	     mem_mail
+	    )
+	    values (
+	      #mem_id#,
+	     #mem_pass#,
+	     #mem_name#,
+	     #mem_zip#,
+	     #mem_add1#,
+	     #mem_add2#,
+	     #mem_mail# 
+       )
+	   
+	   <selectKey resultClass="string">
+	      select mem_id  from member where mem_id = #mem_id#
+	   </selectKey>
+	
+	</insert>
+	
+	
+	<!--  우편번호 검색  -->
+	<select id="selectByDong" parameterClass="string" resultClass="zip">
+	   select * from ziptb where dong like   #dong#||'%'
+	</select>
+	
+	
+</sqlMap> 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button#empty").click(function(){
+        $("div").empty();
+    });
+    
+    $("button#remove").click(function(){
+        $("div").remove();
+    });
+    //////////////////////////////////////
+    $('p.pp').click(function(){
+    	
+    	$(this).css('fontSize', '+=2px');
+    })
+    ////////////////////////////////////////////
+    $('button#eventremove').click(function(){
+    	
+    	$('body').append($('#p2').remove());
+    	
+    })
+   $('button#eventdetach').click(function(){
+    	
+    	$('body').append($('#p1').detach());
+    	
+    })
+    
+    
+});
+</script>
+</head>
+<body>
+
+<div style="height:100px;background-color:yellow">
+  This is some text
+  <p>This is a paragraph inside the div.</p>
+</div>
+
+<p>This is a paragraph outside the div.</p>
+
+<p class="pp" id="p1">무궁화 꽃이 피었습니다- event 유지(detach) </p>
+<p class="pp" id="p2">무궁화 꽃이 피었습니다 -event 삭제(remove) </p>
+
+<button id="empty">empty-자신을 비우기-자식을 삭제 </button>
+<button id="remove">remove-자신을 삭제하기 </button>
+<hr color='blue'>
+<button id="eventremove">remove-자신을 삭제하기-이벤트도 삭제 </button>
+<button id="eventdetach">detach:삭제되더라도 이벤트는 남아있다 </button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

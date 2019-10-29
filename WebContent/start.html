@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('li').hover(function(){
+			$(this).css('background','#FFDDDD');
+			$(this).fadeOut(100);
+			$(this).fadeIn(200);
+		},function(){
+			$(this).css('background','white');
+		})
+	})
+</script>
+<style>
+.over{
+	background: lime;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+
+}
+#a{
+	height : 110px;
+	text-align : left; 
+	background-color: #FFDDDD;
+}
+
+a{
+	text-decoration : none;
+	width : 100px;
+	padding : 10px 5px;
+	color: gray;
+}
+img{
+	height: 110px;
+	margin-right: 150px;
+	margin-left: 100px;
+	float: left;
+}
+
+#field{
+	float: left;
+}
+fieldset {
+	width: 330px;
+	height: 370px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+h1{
+	float: left;
+	padding-top: 21px;
+}
+hr{
+	height: 3px;
+	margin: 0;
+	padding: 0;
+}
+h2{
+	margin-top : 1px;
+	margin-left:115px; 
+	margin-bottom: 5px;
+	padding: 0;
+}
+li{
+	margin: 10px 0;
+	color : white;
+}
+ul{
+	margin-top: 1px;
+}
+span{
+	font-size: 20px;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div id="a">
+	<img alt="쵸파!" src="images/chopa.jpg">
+	<h1>Hello~~ 김병현</h1>
+</div>
+	<fieldset id="field">
+		<h2>05.01</h2>
+		<hr color ='lime'>
+		<ul>
+			<li><a href="0501/selector_컨텍스트.html"><span>S</span>elector_컨텍스트</a></li>
+			<li><a href="0501/selector_test1.html"><span>S</span>elector_1</a></li>
+			<li><a href="0501/selector_test2.html"><span>S</span>elector_2</a></li>
+			<li><a href="0501/test2.html"><span>T</span>est</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+		<h2>05.02</h2>
+		<hr color ='purple'>
+		<ul>
+			<li><a href="0502/buttonIMG.html"><span>B</span>uttonImg</a></li>
+			<li><a href="0502/each_html.html"><span>E</span>ach</a></li>
+			<li><a href="0502/html_append_proprety.html"><span>A</span>ppend&Preprety</a></li>
+			<li><a href="0502/html_append.html"><span>A</span>ppend</a></li>
+			<li><a href="0502/html_text.html"><span>H</span>tml</a></li>
+			<li><a href="0502/jQuery_Dom.html"><span>J</span>Query&Dom</a></li>
+			<li><a href="0502/selector_Dom객체.html"><span>S</span>elector&Dom</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+		<h2>05.04</h2>
+		<hr color ='aqua'>
+		<ul>
+			<li><a href="0504/test_attr_selector1.html"><span>A</span>ttr&Selector</a></li>
+			<li><a href="0504/test_ele_selector.html"><span>E</span>le&Selector1</a></li>
+			<li><a href="0504/test_ele_selector2.html"><span>E</span>le&Selector2</a></li>
+			<li><a href="0504/test_ele_selector3.html"><span>E</span>le&Selector3</a></li>
+			<li><a href="0504/test_ele_selector4.html"><span>E</span>le&Selector4</a></li>
+			<li><a href="0504/test_get_each.html"><span>G</span>et&Each</a></li>
+			<li><a href="0504/test_noconflict.html"><span>N</span>oconflict</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+		<h2>05.08</h2>
+		<hr color ='blue'>
+		<ul>
+			<li><a href="0508/form_selector.html"><span>폼</span>양식선택자1</a></li>
+			<li><a href="0508/test_attr_selector.html"><span>속</span>성관련선택자1</a></li>
+			<li><a href="0508/test_table_selector.html"><span>기</span>본필터1</a></li>
+			<li><a href="0508/test_table_selector1.html"><span>기</span>본필터2</a></li>
+			<li><a href="0508/test_table_selector1.html"><span>기</span>본필터2</a></li>
+			<li><a href="0508/test_filter_basic.html"><span>기</span>본필터3</a></li>
+			<li><a href="0508/test_filter_content.html"><span>내</span>용필터1</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.09</h2>
+	<hr color ='green'>
+	<ul>
+		<li><a href="0509/test_filter_content2.html"><span>내</span>용필터2</a></li>
+		<li><a href="0509/test_filter_child1.html"><span>자</span>식필터1</a></li>
+		<li><a href="0509/test_filter_child2.html"><span>자</span>식필터2</a></li>
+		<li><a href="0509/test_filter_form.html"><span>F</span>orm상태필터1</a></li>
+		<li><a href="0509/test_filter_checked.html"><span>F</span>orm상태필터2</a></li>
+		<li><a href="0509/test_filter_selected.html"><span>F</span>orm상태필터3</a></li>
+		<li><a href="0509/test_visible_hidden.html"><span>F</span>orm상태필터4</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.10</h2>
+	<hr color ='red'>
+	<ul>
+		<li><a href="0509/test_filter_hidden_visible.html"><span>F</span>orm상태필터5</a></li>
+		<li><a href="0510/test_val.html"><span>조</span>작관련메소드 입력값가져오기</a></li>
+		<li><a href="0510/test_append_img.html"><span>A</span>ppend 이미지를 이용한 추가</a></li>
+		<li><a href="0510/test_img_attr_append.html"><span>A</span>ppend 이미지를 이용한 추가2</a></li>
+	</ul>
+	</fieldset>
+
+	<fieldset id="field">
+	<h2>05.11</h2>
+	<hr color ='orange'>
+	<ul>
+		<li><a href="0511/test_wrap.html"><span>감</span>싸기(Wrap & WrapAll)</a></li>
+		<li><a href="0511/test_empty.html"><span>삭</span>제(Empty & Remove)</a></li>
+		<li><a href="0511/test_detach.html"><span>삭</span>제(Detach & Remove)</a></li>
+		<li><a href="0511/test_clone.html"><span>복</span>사(Clone & Clone(true))</a></li>
+		<li><a href="0511/test_filter.html"><span>필</span>터(Filter)</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.12</h2>
+	<hr color ='pink'>
+	<ul>
+		<li><a href="0512/test_Traversing_siblings.html"><span>T</span>raversing_siblings 찾기메소드</a></li>
+		<li><a href="report/report_1.html"><span>T</span>raversing_siblings 찾기메소드</a></li>
+		<li><a href="0512/test_contents_children1.html"><span>C</span>ontents/children1</a></li>
+		<li><a href="0512/test_contents_children2.html"><span>C</span>ontents/children2</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.15</h2>
+	<hr color ='yellow'>
+	<ul>
+		<li><a href="0515/test_parents.html"><span>찾</span>기와 필터링(parent_is)</a></li>
+		<li><a href="0515/test_siblings_end.html"><span>S</span>iblings_end</a></li>
+		<li><a href="0515/test_prop.html"><span>P</span>rop</a></li>
+		<li><a href="0515/test_addClass.html"><span>A</span>dd & Remove & Toggle</a></li>
+		<li><a href="0515/test_attr_title.html"><span>A</span>ttr관련메소드</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.16</h2>
+	<hr color ='gray'>
+	<ul>
+		<li><a href="0516/test_event_info.html"><span>이</span>벤트정보</a></li>
+		<li><a href="0516/test_event_xyinfo.html"><span>M</span>ouseMove좌표정보</a></li>
+		<li><a href="0516/test_mouseover.html"><span>M</span>ouseover</a></li>
+		<li><a href="0516/test_imgover.html"><span>이</span>미지바꾸기와DBLClick</a></li><!--  -->
+		<li><a href="0516/test_hover.html"><span>H</span>over&Trigger</a></li>
+		<li><a href="0516/test_event_toggle.html"><span>T</span>oggle</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.17</h2>
+	<hr color ='lightgreen'>
+	<ul>
+		<li><a href="0517/test_hover.html"><span>H</span>over</a></li>
+		<li><a href="0517/test_keydown.html"><span>K</span>eyDown</a></li><!--  -->
+		<li><a href="0517/test_preEventDefault.html"><span>P</span>reventDefault</a></li>
+		<li><a href="0517/test_stopPropagation.html"><span>P</span>ropagation1</a></li>
+		<li><a href="0517/test_stopPropagation2.html"><span>P</span>ropagation2</a></li>
+		<li><a href="0517/test_bind_fontSize.html"><span>B</span>ind&Unbind</a></li>
+		<li><a href="0517/test_bind_button.html"><span>B</span>ind&Append&AppendTo_Button</a></li>
+		<li><a href="0517/test_delegate.html"><span>D</span>elegate&On_Button</a></li>
+		<li><a href="0517/test_bind_delegate.html"><span>B</span>ind&Delegate</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.18</h2>
+	<hr color ='brwon'>
+	<ul>
+		<li><a href="0518/test_on_trigger.html"><span>O</span>n & Trigger</a></li>
+		<li><a href="0518/test_on_off.html"><span>O</span>n & Off</a></li>
+		<li><a href="0518/test_focus_blur.html"><span>F</span>ocus & Blur</a></li>
+		<li><a href="0518/test_guess_box.html"><span>H</span>over & On & Off & Append</a></li><!--  -->
+		<li><a href="0518/test_effect.html"><span>E</span>ffect1</a></li>
+		<li><a href="0518/test_img_book.html"><span>E</span>ffect2 & 교재목록</a></li><!--  -->
+		<li><a href="0518/test_animate.html"><span>A</span>nimate</a></li>
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.19</h2>
+	<hr color ='aqua'>
+	<ul>
+		<li><a href="0519/test_queue.html"><span>Q</span>ueue</a></li><!--  -->
+		<li><a href="0519/test_queue_fontsize.html"><span>Q</span>ueue & FontSize</a></li><!--  -->
+	</ul>
+	</fieldset>
+	
+	<fieldset id="field">
+	<h2>05.22</h2>
+	<hr color ='purple'>
+	<ul>
+		<li><a href="0522_ajax/first.html"><span>A</span>jax1</a></li>
+		<li><a href="0522_ajax/test_dataType.html"><span>A</span>jax2</a></li>
+	</ul>
+	</fieldset>
+
+	<fieldset id="field">
+	<h2>05.23</h2>
+	<hr color ='coral'>
+	<ul>
+		<li><a href="0523_ajax/lprod.html"><span>L</span>prod</a></li>
+		<li><a href="0523_ajax/buyer.html"><span>B</span>uyer</a></li>
+	</ul>
+	</fieldset>
+
+	<fieldset id="field">
+	<h2>05.24</h2>
+	<hr color ='chocolate'>
+	<ul>
+		<li><a href="0524_ajax/lprod_prod.html"><span>L</span>prod & Prod</a></li>
+	</ul>
+	</fieldset>
+</body>
+</html>
+
+
+
+
+
+

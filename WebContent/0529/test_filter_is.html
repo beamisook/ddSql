@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+    $("p").click(function(){
+
+	   if ($(this).parent().is("div")) {
+        // alert("Parent of p is div"); 
+		//alert($(this).parent().text());
+		 alert($(this).parent().html());
+	 }
+    })
+})
+</script>
+</head>
+<body>
+  <div>  <p>누르세요</p></div>
+  
+</body>
+</html>
+

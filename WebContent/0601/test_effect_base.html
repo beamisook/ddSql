@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('img').css('display', 'none');
+	
+	$('#sh').click(function(){
+		$('img').show(2000, "swing", function(){
+			
+			$(this).css('border', '1px solid red');
+		});
+	})
+	$('#hi').click(function(){
+		$('img').hide(1000);
+	})
+	$('#tog').click(function(){
+		$('img').toggle(500);
+	})
+	
+	$('#fi').click(function(){
+		$('img').fadeIn(2000);
+	})
+	
+	$('#fo').click(function(){
+		$('img').fadeOut(2000);
+	})
+	$('#ft').click(function(){
+		$('img').fadeTo(2000, 0.5);
+	})
+	$('#ftog').click(function(){
+		$('img').fadeToggle(2000);
+	})
+	$('#su').click(function(){
+		$('img').slideUp(500, function(){
+			$('img').attr('src', '../images/단풍.jpg');
+		});
+		
+		$('img').slideDown(1000);
+		
+	})
+	$('#sd').click(function(){
+		$('img').slideDown(500);
+	})
+})
+</script>
+</head>
+<body>
+    <button id="sh">Show it</button>
+    <button id="hi">Hide it</button>
+    <button id="tog">Toggle</button>
+    <button id="fi">FadeIn it</button>
+    <button id="fo">FadeOut it</button>
+    <button id="ft">FadeTo it</button>
+    <button id="ftog">FadeToggle</button>
+    <button id="su">SlideUp</button>
+    <button id="sd">SlideDown it</button>
+    <br>
+    
+    <img id="dog" src="../images/대나무숲.jpg"
+         alt="" width="120" height="100"  />
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('img.im1').css({'width' : '150px', 'height' : '150px'})
+	$('button').hide();
+	
+	$('img.im1').dblclick(function(){
+		$(this).hide();
+		
+		//보이는 이미지가 없으면 버튼이 나타난다
+		if($("img.im1:visible").length == 0){
+			$('button').show();
+		}
+	})
+	//////////////////////////////////////////
+	$('button').click(function(){
+		//이미지가 다시 나타남 
+		$('img.im1').show();
+	
+		//버튼은 사라짐
+		$(this).hide();
+	})
+	/////////////////////////////////////////
+	//src속성값을 가져와서 temp라는 임시속성값으로 저장 
+	/*
+	$('img').mouseover(function(){
+			 $(this).attr('temp',  $(this).attr('src'));
+			 $(this).attr('src',  $(this).attr('src1'));
+	
+     	}).mouseout(function(){
+    		 $(this).attr('src', $(this).attr('temp'));
+     	})
+     */
+     ///////////////////////////////////////////////////
+     /*
+      $('img').attr('temp', function(){
+		       return   $(this).attr('src')
+	  }).mouseover(function(){
+			   $(this).attr('src',  $(this).attr('src1'));
+	
+      }).mouseout(function(){
+    				 $(this).attr('src', $(this).attr('temp'));
+      })
+     */
+     ////////////////////////////////////////////////
+     $('img.im1').attr('temp', function(){
+		       return   $(this).attr('src');
+		       
+     }).hover(function(){ 
+    	   $(this).attr('src',  $(this).attr('src1'));
+    	 
+     }, function(){
+    	   $(this).attr('src', $(this).attr('temp'));
+     })
+     
+     
+     
+})
+
+</script>
+</head>
+<body>
+
+  <img class="im1" src="../images/Tulips.jpg" src1="../images/Desert.jpg" >
+  <img class="im1" src="../images/Koala.jpg" src1="../images/Penguins.jpg">
+  <img class="im1" src="../images/Hydrangeas.jpg"  src1="../images/chopa.jpg">
+  <img class="im1" src="../images/Tulips.jpg" src1="../images/jQuery.jpg">
+  <button>보이기</button>
+
+</body>
+</html>
+
+
+
+
+

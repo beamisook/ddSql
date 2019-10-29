@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+		$('img').css({'width': '150px', 'height' : '150px' });
+    //////////////////////////////////////////////////
+		$('#reBut').click(function(){
+			
+			if($(this).text() == "거꾸로") {
+			   a =  setInterval(function(){
+	             $('div').prepend($('img:last'));
+	           // $('img:last').prependTo('div');   
+                }, 500);
+			   $(this).text("정지");
+			}else {
+				clearInterval(a);
+				$(this).text("거꾸로");
+			}
+		})
+		/////////////////////////////////////
+		$('#but').click(function(){  
+			
+			if($(this).text() == "시작") {
+			  a =   setInterval(function(){
+		             $('div').append($('img:first'));
+		           // $('img:first').appendTo('div');   
+	               }, 500);
+			     $(this).text("정지");
+			}else {
+				
+				clearInterval(a);
+				$(this).text("시작");
+			}
+			
+		})
+	   ///////////////////////////////////////////////////////////
+	})
+</script>
+</head>
+<body>
+	<div>
+		<img src="../images/image.1.jpg">
+		<img src="../images/image.2.jpg"> 
+		<img src="../images/image.3.jpg">
+		<img src="../images/image.4.jpg">
+		<img src="../images/image.5.jpg"> 
+		<img src="../images/image.6.jpg">
+		<img src="../images/image.7.jpg">
+	</div>
+
+   <button id="but">시작</button>
+   <button id="reBut">거꾸로</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

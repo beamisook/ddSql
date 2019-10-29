@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+       $('button').click(function(){
+	        //text(): 태그엘리먼트의 문자값을 가져온다 
+			//alert($(this).text());
+			
+			var txt = $(this).text();	
+	        var aa =  $('<img/>', { 
+						'src' : '../images/' + txt + '.jpg',
+						'width' : '200px',
+						'height' : '200px',
+						'click' : function(){
+						    $(this).css('border', '2px solid red');
+						 }
+					  });
+				  
+		    $('body').append(aa);
+	   })
+  })
+</script>
+
+<body>
+   <button>공유</button><br>
+   <button>수지</button><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

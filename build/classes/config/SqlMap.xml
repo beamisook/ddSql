@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="test">
+ 	<!-- 
+ 		쿼리의 결과값을 매칭시켜 VO객체에 바로 담기 위한 resultMap설정
+ 		컬럼과 VO의 변수와 매칭을 시켜 자동으로 넣어준다.
+ 	-->
+ 	<!-- 
+ 		1)만약 아래의 select문에서 모든 컬럼이 아닌 일부의 컬럼만 선택한다고 가정했을때
+ 	 	  resultMap에서 매칭할 때에는 가져올 컬럼만 지정해서 가져와야 한다.
+ 	 	2)만약 모두 명시하고 싶을 경우에는 '' AS BOARD_CONTENT와 같이 null값으로 가져오도록 한다.(무의미한 데이터)
+ 	 	3)''  AS BOARD_CONTENT를 쓰지 않을 경우에는 resultMap를 더 만들어서 id를 새로 지정해줘서 해당 쿼리문에 쓸 맞춰준다.
+ 	-->
+ 	
+ 	<resultMap class="kr.or.ddit.ibatis.vo.BoardVO" id="boardVOForList">
+ 		<result property="boardId" column="BOARD_ID"/>
+ 		<result property="boardTitle" column="BOARD_TITLE"/>
+ 		<result property="boardWriter" column="BOARD_WRITER"/>
+ 		<result property="boardDate" column="BOARD_DATE"/>
+ 		<result property="boardContent" column="BOARD_CONTENT"/>
+	</resultMap>
+	
+	<resultMap class="kr.or.ddit.ibatis.vo.BoardVO" id="boardVOForObject">
+ 		<result property="boardId" column="BOARD_ID"/>
+ 		<result property="boardTitle" column="BOARD_TITLE"/>
+ 		<result property="boardWriter" column="BOARD_WRITER"/>
+ 		<result property="boardDate" column="BOARD_DATE"/>
+<!--  		<result property="boardContent" column="BOARD_CONTENT"/> -->
+	</resultMap>
+	
+	<!-- 
+		select 쿼리 
+		- resultMap을 boardVO로 설정하였으므로 최종적으로는 결과값이 BoardVO로 반환되게 된다. 
+	-->
+	<!-- 
+	<select id="selectList" resultMap="boardVOForList">
+		SELECT
+			BOARD_ID,
+			BOARD_TITLE,
+			BOARD_WRITER,
+			BOARD_DATE,
+			'' AS BOARD_CONTENT
+		FROM
+			JDBC_TEST
+	</select>
+	-->
+
+	<!-- 
+		다이나믹 쿼리 : 상황에 따라 쿼리문이 동적으로 바뀐다.
+		isNotEmpty : 공백까지 잡아낸다.
+		isNotNull  : null만 아니면 되기 때문에 공백을 잡지 못 한다.
+		그렇기 때문에 isNotNull보다는 isNotEmpty를 쓰는것을 선호한다.
+	 -->
+	<select id="selectList" resultMap="boardVOForList" parameterClass="java.util.HashMap">
+		SELECT
+			BOARD_ID,
+			BOARD_TITLE,
+			BOARD_WRITER,
+			BOARD_DATE,
+			BOARD_CONTENT
+		FROM
+			JDBC_TEST
+		WHERE 1=1
+		<isNotEqual property="boardId" compareValue="0">
+		AND BOARD_ID = #boardId#
+		</isNotEqual>
+		<isNotEmpty property="boardTitle">
+		AND BOARD_TITLE LIKE '%'||#boardTitle#||'%'
+		</isNotEmpty>
+		<isNotEmpty property="boardWriter">
+		AND BOARD_WRITER LIKE '%'||#boardWriter#||'%'
+		</isNotEmpty>
+	</select>
+
+	<!--
+		쿼리문안에 넣을 매겨변수를 추가할때 다음과 같이 쓴다.
+		(parameterClass="java.util.HaspMap" 생략가능) 
+	-->
+	<select id="select" resultMap="boardVOForObject" parameterClass="java.util.HashMap">
+		SELECT
+			BOARD_ID,
+			BOARD_TITLE,
+			BOARD_WRITER,
+			BOARD_DATE,
+			BOARD_CONTENT
+		FROM
+			JDBC_TEST
+		WHERE
+			BOARD_ID = #boardId#
+	</select>
+	
+	<insert id="insert" parameterClass="java.util.HashMap">
+		INSERT INTO
+			JDBC_TEST
+			(BOARD_ID, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CONTENT)
+		VALUES(
+			(SELECT
+				NVL(MAX(BOARD_ID),0)+1
+			FROM
+				JDBC_TEST),
+			#boardTitle#,
+			#boardWriter#,
+			SYSDATE,
+			#boardContent#
+			)
+	</insert>
+	
+	<delete id="delete" parameterClass="java.util.HashMap">
+		DELETE FROM
+			JDBC_TEST
+		WHERE
+			BOARD_ID = #boardId#
+	</delete>
+	
+	<update id="update" parameterClass="java.util.HashMap">
+		UPDATE 
+			JDBC_TEST
+		SET
+			BOARD_TITLE = #boardTitle#,
+			BOARD_DATE = SYSDATE,
+			BOARD_CONTENT = #boardContent#
+		WHERE
+			BOARD_ID = #boardId#
+	</update>
+</sqlMap>

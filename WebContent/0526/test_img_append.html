@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+		$('p').click(function(){
+			
+			var imgsrc =  $(this).attr('title');
+			$('<img/>', {
+				 'src' : '../images/' + imgsrc  + '.jpg',
+				 'width' : '150px',
+				 'height' : '150px',
+				 'title'  : imgsrc,
+				 'click'  : function(){
+					 
+					$(this).css('border', '2px solid red'); 
+				 }
+			}).insertAfter(this);    //appendTo(this) 
+			
+		    ///////////////////////////////////////////////////////////////////
+			//$(this).append("<img src='../images/" + imgsrc  + ".jpg'>" ).attr('title', imgsrc);
+			//$(this).after("<img src='../images/" + imgsrc  + ".jpg'>").attr('title', imgsrc);
+			////////////////////////////////////////////////////////////////////
+		})
+		////////////////////////////
+		
+	})
+</script>
+<style>
+  img{
+    width : 150px;
+    height : 150px;
+   }
+</style>
+</head> 
+<body>
+<!--이름이  영문으로 된경우 ../images/Tulips.jpg - title속성를 이용 = .attr('title')
+    이름이 한글로 된경우    ../images/튜울립.jpg  - .text()
+  -->
+  <p title="Tulips">튜울립</p> 
+  <p title="Chrysanthemum">국화</p>
+  <p title="Koala">코알라</p>
+  <p title="Hydrangeas">수국     </p>  
+  
+</body>
+</html>
+
+
+
+
+
+
+
+

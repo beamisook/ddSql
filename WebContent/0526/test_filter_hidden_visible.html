@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+        var result = "";
+      
+        /*
+        result += "Hidden의 결과 \n";
+        $(':hidden', "body").each(function(){
+        	
+           	if(this.tagName == "INPUT") {
+        		result += this.tagName + " hidden객체 : " + $(this).attr('name') 
+        		        + " : " + $(this).val() + "\n" ;
+        	} else{
+        	   result +=   $(this).text();	
+        	}
+        }) 
+        */
+        result = "Visible의 결과 \n";
+		//$(':visible', '#testForm').each(function(){
+        $('#testForm :visible').each(function(){	
+           	if(this.tagName == "INPUT") {
+        		result += this.tagName + " visible객체 : " + $(this).attr('name') 
+        		        + " : " + $(this).val() + "\n" ;
+        	} else{
+        	   result +=   $(this).text();	
+        	}
+        }) 
+        alert(result);
+       /////////////////////////////////////
+       
+       
+	})
+</script>
+</head>
+<body>
+ <form id="testForm"> 
+	<input type="hidden" name="userAge" value="33">    
+	<input type="hidden" name="userCity" value="대전">  
+	I D : <input type="text" name="userID" value="hong">  
+	<span style="display:none">ID가 중복됩니다. </span> <br> 
+	이름 : <input type="text" name="userName" value="홍길동">  
+	<span style="visibility:hidden">이름을 입력하세요</span><br>  
+	성별 : <input type="radio" name="sung" value="남" checked>남자  
+	<input type="radio" name="sung" value="여">여자  
+  </form>
+ 
+
+</body>
+</html>

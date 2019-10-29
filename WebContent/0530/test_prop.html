@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	
+	//상태값 가져오기 
+	/*var chk = $('#checkTest').prop('checked') ;
+	var sel = $('#selTest option:eq(0)').prop('selected');
+	var read = $('#txtTest').prop('readonly');
+	var dis = $('#btnTest').prop('disabled');
+	alert(chk + "," + sel + "," + read + "," + dis);
+	*/
+	//실행버튼 클릭할때마다  상태값을 반대로 설정 한다 
+	$('#runBtn').click(function(){
+		var chk = $('#checkTest').prop('checked') ;
+		var sel = $('#selTest option:eq(1)').prop('selected');
+		var read = $('#txtTest').prop('readonly');
+		var dis = $('#btnTest').prop('disabled');
+		
+		$('#checkTest').prop('checked', !chk);
+		$('#selTest option:eq(1)').prop('selected', !sel);
+		$('#txtTest').prop('readonly', !read);
+		$('#btnTest').prop('disabled', !dis);
+		
+		//text의 readonly속성이 false 일때 테두리를 핫핑크으로 설정 
+		//true일때 테두리 없음
+		
+		if(read){
+			$('#txtTest').addClass('blue');
+		}else{
+			$('#txtTest').removeClass('blue');	
+		}
+	})
+})
+</script>
+<style>
+  .blue{
+    border : 1px solid blue;
+  }
+
+</style>
+</head>
+<body>
+	<form>
+		체크박스(라디오버튼) : 
+		 <input type="checkbox" id="checkTest" checked ><br>
+		<br>
+		 리스트박스(select객체) : 
+		 <select id="selTest">
+			<option value="1" >하나</option>
+			<option value="2"  selected>둘</option>
+			<option value="3">셋</option>
+			<option value="4">넷</option>
+		</select><br>
+		<br> text객체 (readonly) : 
+		   <input type="text" value="가나다" 	id="txtTest" readonly><br>
+		<br> button객체(disabled) :
+		  <input type="button" value="연습용" id="btnTest" disabled><br>
+		<br> <input type="button" value="실행" id="runBtn">
+	</form>
+</body>
+</html>
+
+
+

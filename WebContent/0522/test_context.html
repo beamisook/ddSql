@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+     //var h2obj =  $('h2');   //h2obj 는 jquery객체다 
+	// h2obj.css('background', 'pink');   //jquery객체변수로 jQuery메소드 css를 호출한다 
+
+	 var docuh2 = document.getElementsByTagName('h2')[0];   //dom객체다 
+	 //docuh2.css('background', 'cyan');  //실행 안됨    dom객체로 jQuery메소드 호출 불가  
+	 
+	 //dom객체로  jQuery메소드를 사용하려면 $()감싼다 
+	 $(docuh2).css('background', 'cyan');
+    /////////////////////////////////////////////////////////////////////////////////
+    //전체 문서의 p
+    $('p').css('color' , 'red');
+	
+	// 1 번째 form의 p
+	$('p', document.forms[1]).css('color', 'blue');
+	
+	//div를 클릭하면 클릭한 div안의 p를 선택 
+	$('div').click(function(){
+	   // $('p', this).css('background', 'yellow');
+	    $('p', this).toggleClass('pp');
+	})
+	
+  })
+ </script>
+ 
+ <style>
+   .pp{
+       background : yellow;
+   }
+  </style>
+
+<body>
+  
+   <h2> Hello~~  H2!!</h2>
+
+  <form>
+    <p> Hello~~ p1 </p>
+	<div id="d1"><p>Hello~~  div p </p></div>
+  </form>
+  
+  <form>
+    <p> Hello~~ p2</p>
+	<div id="d2"><p>Hello~~  div2 p2 </p></div>
+  </form>
+  
+  <form>
+    <p> Hello~~ p3 </p>
+  </form>
+
+</body>
+
+</html>

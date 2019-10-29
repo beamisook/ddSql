@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("input").focus(function () {
+        //$(this).css("background-color", "yellow");
+        $(this).addClass('back');
+    });
+
+   $("input").blur(function () {
+         // $(this).css("background-color", "white");
+         $(this).removeClass('back');
+    });
+
+})
+</script>
+<style>
+   .back{
+      background : yellow;
+   }
+
+</style>
+</head>
+<body>
+  
+  이름  :      <input type="text" name="name"><br>
+  비밀번호 :  <input type="password" name="pass"><br>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+		//$('select[id=spring] option:selected').
+		//$('#spring option:selected')
+		//$('option:selected')
+		
+		var result = "봄소식 전령사들 \n\n";
+		$('select[id=spring]').change(testSelected);
+		
+		function testSelected(){
+			$('option:selected').each(function(i){
+				result += $(this).val() + "\n";
+				$(this).css('border', '1px solid red');
+			})
+			
+			alert(result);
+    	}
+		
+		//////////////////////////////////////////////////////
+	   /* $('select[id=spring]').change(function(){
+			
+			$('option:selected').each(function(i){
+				result += $(this).val() + "\n";
+				$(this).css('border', '1px solid red');
+			})
+			
+			alert(result);
+			
+		}) */
+		
+	})
+</script>
+</head>
+<body>
+	<form>
+		봄소식 : <select name="spring" id="spring" multiple size="6">
+			<option>개나리</option>
+			<option selected>진달래</option>
+			<option>민들레</option>
+			<option selected>벚꽃</option>
+			<option>목련</option>
+			<option>철쭉</option>
+		</select>
+	</form>
+
+</body>
+</html>

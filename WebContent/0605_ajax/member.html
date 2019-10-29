@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	  $('#btn').click(function(){
+		  $.ajax({ 
+			  url : '/jquerypro/memberServlet',
+			  type : 'get',
+			  success : function(res){
+				var code = "<table>";
+				code += "<tr><td>MEMBER_ID</td><td>MEMBER_NAME</td><td>MEMBER_HP</td><td>MEMBER_MAIL</td><td>MEMBER_ADDR</td></tr>";
+				
+				$.each(res, function(i){
+					code += "<tr><td>" + res[i].id + "</td>";
+					code += "<td>" + res[i].name + "</td>";
+					code += "<td>" + res[i].hp + "</td>";
+					code += "<td>" + res[i].mail + "</td>";
+					code += "<td>" + res[i].addr + "</td></tr>";
+				})
+				code += "</table>";
+				$('#result').html(code);
+			  },
+			  error : function(){
+				 alert("실패") ;
+			  },
+			  dataType: 'json'
+		  })
+	  })
+	  ///////////////////////////////////////
+	  
+})
+</script>
+</head>
+<body>
+  <button id ="btn">멤버리스트</button>
+  <hr color='blue'>
+  
+  <div id="result"></div>
+</body>
+</html>

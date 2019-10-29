@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#txt').keydown(function(){
+		var leng =    $('#txt').val().length;
+		var count = 100 - leng;
+		$('span').text(count);
+		if(count <=0 ) {
+			$(this).prop('readonly', true);
+			alert("입력초과 !!!");
+		}
+	})
+	////////////////////////////////////
+	$('a').click(function(e){
+		
+		var aa = parseInt(Math.random()*20)+10;
+		if(aa < 20 ) {
+			//e.preventDefault();
+			alert("미성년자 접근금지 !!!!");
+			return false;
+		}
+	})
+})
+</script>
+</head>
+<body>
+   <h1> 하고 싶은 말을 남겨주세요(100자 이내)</h1>
+   
+   <textarea id="txt" rows="10" cols="50"></textarea>
+   <p>남은글자<span></span></p>
+   
+   <p>
+   <a href="http://www.naver.com">네이버이동</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

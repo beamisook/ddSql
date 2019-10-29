@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+	  $('button').css('display', 'none');
+	  
+	  $('p').click(function(){
+		 $(this).hide();
+		 if($("p:visible").length == 0) $('button').show();
+	  })
+	  ////////////////////////////
+	  $('button').click(function(){
+		  $('p').show();
+		  $(this).hide();
+	  })
+	  
+  })
+</script>
+</head>
+<body>
+  <p> 클릭하면 사라집니다 1</p>
+  <p> 클릭하면 사라집니다 2</p>
+  <p> 클릭하면 사라집니다 3</p>
+  <p> 클릭하면 사라집니다 4</p>
+  <p> 클릭하면 사라집니다 5</p>
+  <p> 클릭하면 사라집니다 6</p>
+  <p> 클릭하면 사라집니다 7</p>
+  <p> 클릭하면 사라집니다 8</p>
+  <p> 클릭하면 사라집니다 9</p>
+  <p> 클릭하면 사라집니다 10</p>
+  <button>보이기</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

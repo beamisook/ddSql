@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+ <sqlMap namespace="prod">
+   <typeAlias alias="prod" type="kr.or.ddit.vo.ProdVO"/>
+   
+   <select id="selectBylgu" parameterClass="string" resultClass="prod">
+     select prod_id, prod_name from prod where prod_lgu = #lprod_gu#
+   </select>
+   
+   <select id="selectDetail" parameterClass="string" resultClass="prod">
+       select * from prod where prod_id= #data#
+   </select>
+ 
+ </sqlMap>

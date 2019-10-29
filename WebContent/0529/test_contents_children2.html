@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('button#cont').click(function(){
+		//태그있거나 없거나
+		$('div').contents().filter("em").wrap("<b/>");
+		$('div').contents().wrap("<b/>");  //실행됨
+	    $('div').contents().addClass('blue')
+	    //div의 내용은 선택, color속성은 <b>태그를 이용해서 입힌다 
+	    //b태그가 없으면 color속성도 실행되지 않는다
+	})
+	/////////////////////////////////
+	$('button#child').click(function(){
+		$('div').removeClass('blue');
+		//태그있는것만
+		$('div').children().filter("em").wrap("<b/>");
+		$('div').children().wrap("<b/>");  //실행안됨
+		
+		$('div').children().css('color', 'green');
+	})
+})
+</script>
+<style>
+  .blue{
+     color : blue;
+  }
+  .green{
+    color : green;
+  }
+
+</style>
+</head>
+<body>
+
+  <div><em>헬로우 world!!  아름다운 여름 날 !!!-em태그가 포함 된 </em></div>
+  <div>헬로우 world!! 태그가 없는  쓸쓸한 봄 날 !!! </div>
+  
+  <button id="cont">contents(모든자식의 태그와 문자)</button>
+  <button id="child">Children(태그가 있는 자식의 태그와 문자)</button>
+</body>
+</html>

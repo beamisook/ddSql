@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#add').click(function(){
+		$('input').addClass('text');
+	})
+	$('#remove').click(function(){
+		$('input').removeClass('text');
+	})
+	$('#toggle').click(function(){
+		$('input').toggleClass('text');
+	})
+	
+	
+	$('#has').click(function(){
+		if($('input').hasClass('text')){
+			$('input').removeClass('text');
+		}else{
+			$('input').addClass('text');
+		}
+	})
+	
+	
+})
+</script>
+<style>
+  .text{
+      border : 2px solid red;
+  }
+</style>
+</head>
+<body>
+  <input type="text" name="name"><br>
+  <button id="add">Add클래스</button>
+  <button id="remove">Remove클래스</button>
+  <button id="toggle">Toggle클래스</button>
+  <button id="has">Has클래스</button>
+</body>
+</html>

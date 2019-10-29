@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script>
+$(function(){
+	  $.ajax({
+		  url : '/jquerypro/buyer',
+		  success : function(res) {
+			 var code="";
+			 $.each(res, function(i){
+			    code += "<div class='dd' id='" + res[i].id + "'>" + res[i].name + "</div>";
+			 })
+			 $('#names').html(code);
+		  },
+		  error : function(){
+			  alert("실패");
+		  },
+		  dataType : 'json'
+ 	  })
+ 	  ///////////////////////////////////
+ 	  //name리스트의 div의 이벤트를 delegate로 등록
+ 	  //서블릿을 요청 - data로 id값을 보낸다 
+ 	  $('#names').on('click', 'div', function(){
+ 		  //클릭한 div의id속성값을 가져온다 
+ 		   var idval =   $(this).attr('id');
+ 		  $.ajax({
+ 			  url: '/jquerypro/buyer',
+ 			  type: 'post',
+ 			  data : 'id=' + idval,   //{ "id" : idval },
+ 			  success : function(res){
+ 				var code ="<table  class='table table-striped' >" ;
+ 				code += "<tr><td>BUYER_ID</td><td>" + res.id + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_NAME</td><td>" + res.name + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_LGU</td><td>" + res.lgu + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_BANK</td><td>" + res.bank + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_ZIP</td><td>" + res.zip + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_ADD1</td><td>" + res.add1 + "</td></tr>"; 
+ 				code += "<tr><td>BUYER_ADD2</td><td>" + res.add2 + "</td></tr>";
+ 				code += "<tr><td>BUYER_COMTEL</td><td>" + res.comtel + "</td></tr>";
+ 				code += "<tr><td>BUYER_MAIL</td><td>" + res.mail + "</td></tr>";
+ 				code += "</table>";
+ 			    $('#detail').html(code);
+ 			  },
+ 			  error : function(){
+ 				  alert("실패");
+ 			  },
+ 			  dataType : 'json'
+ 		  })
+ 	  })
+})
+</script>
+<style>
+   
+    td{
+      width : 300px;
+    }
+    div{
+      height : 20px;
+         
+   }
+   div.dd:hover{
+       background : hotpink;
+   }
+  
+  
+</style>
+</head>
+<body>
+   <table border=1>
+      <tr>
+         <td>거래처 이름</td>
+         <td>거래처 상세정보</td>
+      </tr>
+      
+      <tr>
+         <td id="names"></td>
+         <td id="detail"></td>
+      </tr>
+      
+   
+   </table>
+</body>
+</html>

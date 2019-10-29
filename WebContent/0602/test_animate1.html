@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	 $('button#ani').click(function(){
+		 $('#dog').animate({left : '+=100px'}, 1000);  
+	 })
+	 
+	 $('p').click(function(){
+		  $(this).animate({ 'font-size' : '+=5px'  }, 800);
+	 })
+	 
+	 $('#clear').click(function(){
+		 $('p').off('click');
+	 })
+	 
+	 
+	 $('#del').bind('click', function(){
+		  $('#flower').slideUp(600).delay(500);
+		  $('#flower').fadeIn(1000);
+	 })
+	 
+	 $('#start').click(function(){
+		 $('#suji').fadeIn(500).delay(500)
+		           .animate({'left' : '300px'}, 500).delay(500)	
+		     	   .animate({'opacity':'-=0.8'}).delay(500)
+			       .animate({left:'-=300px'},1000).delay(500)
+			       .animate({'opacity':'+=0.8'});
+
+		 
+	 })
+	 
+	 $('#run').click(function(){
+		  $('div').show(1000).delay(500);
+		  $('div').animate({left : '200px'}).delay(500);
+		  
+		  $('div').queue(function(){
+			  $(this).css('background' , 'red');
+			  $(this).dequeue();
+		  })
+		  
+		  $('div').animate( {left : '-=200px'});
+		  
+	 })
+})
+</script>
+
+<style>
+   #dog{
+      width : 120; 
+     height : 100;
+     position : relative ;
+    }
+    p{
+       position : relative ;
+    }
+    #suji {
+       position : relative ;
+       display : none;
+    }
+    
+    div{
+       width : 100px;
+       height : 100px;
+       position : relative ;
+       display : none;
+       background : green;
+    }
+</style>
+  
+</head>
+<body>
+    <img id="dog" src="../images/수국9.jpg"  alt="수국9"/><br />
+    <button id="ani">animate()</button>
+   
+    <p>대한 민국 만세~~</p>
+    <button id="clear">이벤트 해제</button>
+   
+    <br><p>
+    <img id="flower" src="../images/국화6.jpg" alt="국화"><br>
+    <button id="del">지연</button>
+    
+    <hr color='blue'>
+    <br><p>
+    start를 눌러보세요 !! 깜짝 놀랄일이 !!! ~ <br>
+    <button id="start">START</button><br>
+    <img  id="suji" src="../images/수지.jpg" alt="수지"><br>
+    
+   <hr color='blue'>
+   animate를 이용한 색상변경 - queue(function())  -<br>
+   숫자 이외의 속성을 변경하기 위한 목적이다<br>
+    <button id="run">실행</button><br>
+    <div></div>
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+

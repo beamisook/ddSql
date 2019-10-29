@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+		  var result ="";
+		  
+           $('#btnview').click(function(e){
+        	   e.preventDefault();  //기본적으로 가지는 기능을 제거 
+        	   
+        	  result +=  $('#user').val() + "\n";
+        	  result  +=  $('#intro').val() + "\n";
+        	  
+        	  //$('input[type=radio]:checked').val()
+        	  //$(':radio:checked').val()
+        	  result +=  $('#gend:checked').val() + "\n" ;
+        	  //$('select option:selected').val()
+        	  //$('select#work option:selected').val()
+        	  //$('#work option:selected').val()
+        	  result +=  $('option:selected').val() + "\n";
+        	  
+        	  alert(result);
+           })
+           //////////////////////////////////
+           $('#btnchange').click(function(e){
+        	   // var a =  $('#user').val();
+        	    e.preventDefault();        ////기본적으로 가지는 기능을 제거 
+        	    $('#user').val("홍길동");
+           })
+	})
+</script>
+
+</head>
+<body>
+	<form >
+		<label for="user">이름</label> 
+		<input type="text" id="user"value="korea"><br>
+		 <label>성별</label> 
+		 <input	type="radio" id="gend" name="gend" value="남자" checked>남자 
+		 <input	type="radio" id="gend" name="gend" value="여자">여자<br>
+		<label for="intro">소개</label>
+		<textarea id="intro" cols="40" rows="4"></textarea>
+		<br>
+		 <label for="work">직업</label>
+		  <select id="work">
+			<option >프로그래머</option>
+			<option >프로게이머</option>
+			<option >백수</option>
+		</select><br>
+		<button id="btnview">조사하기</button>
+		<button id="btnchange">이름변경</button>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

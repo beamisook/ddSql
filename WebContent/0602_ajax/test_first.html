@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#normal').click(function(){
+		 //docuemnt.forms[0]
+		 var f =  document.getElementById("ff");
+		 f.action = "first.jsp";
+		 f.method = "post";
+		 f.submit();
+	})
+	////////////////////////////
+	$('#ajax').click(function(e){
+		e.preventDefault();
+		$.ajax({  
+			 url : 'first.jsp',
+			 type : 'post',
+			 data :  $('#ff').serialize(),
+			 dataType : 'text',
+		     success : function(res){
+		    	$('#result').html(res);
+		     }
+		})
+		
+	})
+	///////////////////////////
+	
+	
+	
+})
+</script>
+</head>
+<body>
+  <form id="ff">
+      이름 <input type="text" name="name" id="name"><br>
+      나이 <input type="text" name="age" id="age"><br>
+      <button id="normal">기존의 방식 </button>
+      <button id="ajax">Ajax 방식 </button>
+ </form>
+ 
+ <hr color='red'>
+ <div id="result"> </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

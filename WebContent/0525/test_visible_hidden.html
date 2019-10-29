@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+	   var result = "";
+	   
+	 //  $.each($('*:hidden'), function() {  })
+	   
+	  // $('*:hidden').each(function(i, value){
+		//  result += i + "번째 태그 " +  value.tagName  +  "\n";
+	  // })
+	  /////////////////////////////////////
+	  $('body :visible').each(function(i, v){
+		  result += i + "번째 태그 " +  v.tagName  +  "\n";
+	  })
+	   
+	  alert(result);
+	  //document.write(result);
+  })
+ </script>
+</head>
+<body>
+  <p> 보이는 문단</p>
+  <p style="visibility:hidden;">숨겨진 문단</p>
+  <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+  <p style="opacity:0;"> 투명한 문단</p>
+  <hr/>
+   <div id="dres"></div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+   $(function(){
+	   ///////////////////////////////////
+	   //lprod요청하는 부분 
+	   $.ajax({
+		   url : '/jquerypro/lprodServlet',
+		   success : function(res){
+			   var code="";
+			   $.each(res, function(i){
+				    code += "<option value='" + res[i].gu + "'>" +  res[i].nm + "</option>" ;
+			   })
+			   $('#lprod').html(code);
+			   $('#lprod').trigger('change');  //prod를 요청하는 부분 
+		   },
+		   error : function(xhr, status , error){
+			   alert("오류..." + xhr.status );
+		   },
+		   dataType : 'json'
+	   })
+	   
+	/////////////////////////////////////////   
+	   //prod를 요청하는 부분- lprod_gu 데이타필요 
+	   $('#lprod').change(function(){
+		   var gu = $(this).val();
+		   $.ajax({
+			 url :'/jquerypro/prodServlet',
+			 type : 'post',
+			 data : "lprod_gu=" + gu,
+			 success: function(res){
+				var code = "";
+				$.each(res, function(i, v){
+					code +="<option value='" + res[i].id +"'>" +res[i].name + "</option>";
+				})
+				$('#prod').html(code);
+				$('#prod').trigger('change');  //detail요청하는 부분 
+				
+			 },
+			 error: function(){
+				alert("오류...") ;
+			 },
+			 dataType : 'json'
+			 
+		   })
+		   
+	   })
+	   ////////////////////////////////
+	   //detatil요청하는 부분 
+	   $('#prod').change(function(){
+		   
+		   var id =$(this).val();
+		   $.ajax({
+			  url :  "/jquerypro/prodServlet",
+		      type : 'post',
+		      data : "prod_id=" + id,
+		      success : function(res){
+		    	  var code = "<table class='table table-striped'><tr><td>항목</td><td>내용</td></tr>";
+		    	  code += "<tr><td>PROD_ID</td><td>" + res.id +"</td><tr>";
+		    	  code += "<tr><td>PROD_NAME</td><td>" + res.name +"</td><tr>";
+		    	  code += "<tr><td>PROD_LGU</td><td>" + res.lgu +"</td><tr>";
+		    	  code += "<tr><td>PROD_BUYER</td><td>" + res.buyer +"</td><tr>";
+		    	  code += "<tr><td>PROD_COST</td><td>" + res.cost +"</td><tr>";
+		    	  code += "<tr><td>PROD_PRICE</td><td>" + res.price +"</td><tr>";
+		    	  code += "<tr><td>PROD_SALE</td><td>" + res.sale +"</td><tr>";
+		    	  code += "<tr><td>PROD_OUTLINE</td><td>" + res.outline +"</td><tr>";
+		    	  code += "<tr><td>PROD_DETAIL</td><td>" + res.detail +"</td><tr>";
+		    	  
+		    	  $('#result').html(code);
+		    	  
+		    	 
+		      },
+		      error : function(){
+		    	  alert("오류 ..");
+		      },
+		      dataType : 'json'
+	        })
+
+	   })
+	   /////////////////////////////////////
+	   
+   })
+</script>
+<style>
+  
+</style>
+</head>
+<body>
+  
+  <div class="form-group col-sm-6">
+      <label for="lprod">Lprod 대분류(select one):</label>
+      <select class="form-control" id="lprod">
+      </select>
+      <br>
+      <label for="prod">Prod 소분류(select one):</label>
+      <select class="form-control" id="prod">
+      </select>
+  </div>
+  
+  <!--  
+  <table>
+    <tr>
+       <td>
+          <select id="lprod"> 
+             <option value="p101">컴퓨터제품 </option>
+            <option value="p102">전자제품 </option>
+            <option value="p201">여성캐주얼</option> 
+          </select>
+       </td>
+       <td>
+          <select id = "prod">
+             <option value="p10100001">모니터 15 </option>
+            <option value="p10100002">모니터 17 </option>
+            <option value="p10100003">모니터 19 </option> 
+          </select>
+       </td>
+    </tr>
+  </table>
+  -->
+  <div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(function(){
+     
+	 var jq =   $('h1');
+	 jq.css('color', 'blue');
+	 
+	 var dom = $('h1')[1];   //$('h1').get(1)
+    // dom.css('color', 'red');  //사용불가 
+	 $(dom).css('color', 'red');
+	dom.style.background = 'yellow'; 
+  })
+</script>
+
+<body>
+    <h1>홍길동</h1>
+    <h1>개나리</h1>
+	<h1>진달래</h1>
+	<h1>개나리</h1>
+   
+</body>
+</html>

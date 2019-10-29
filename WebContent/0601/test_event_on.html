@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	/////////bind의 의미//////////////////
+  /*  $('h1').on('click', function(){
+	    $(this).css('background', 'orange');
+   }) */
+   
+   ////////delegate의 의미/////////////////////////////
+   $('body').on('click', 'h1', function(){
+	   
+	   $(this).css('background', 'orange');
+   })
+   ///////////////////////////////////////
+   $('<h1>새 엘리먼트</h1>' ).appendTo('body');
+
+   
+})
+</script>
+</head>
+<body>
+    <h1> 제목입니다 </h1>
+   	<h1>클릭하세요 </h1>
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

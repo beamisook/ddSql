@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	//$('div:eq(1)').css()
+	$("div").eq(1).css('border', '2px solid green');
+	/* $("div").eq(1).siblings().css('border', '4px solid hotpink');
+	$("div").eq(1).next().text("Thired");
+	$("div").eq(1).nextAll().css('background', 'yellow');
+	$("div").eq(1).prev().css('background', 'green');
+ */
+ 
+	$("div").eq(1).siblings().css('border', '4px solid hotpink')
+	.end().next().text("Thired")
+	.end().nextAll().css('background', 'yellow')
+	.end().prev().css('background', 'green');
+})
+</script>
+<style>
+div {  width  : 100px;
+       height : 100px; 
+       margin : 10px; 
+       float  : left; 
+       border : 2px solid blue; 
+ } 
+ </style> 
+</head>
+<body>
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	 $('img').css({'width':'200', 'height':'200'});
+	 
+	/*  
+	 $('img').each(function(i){
+		 $(this).attr('title', i + "번째 이미지 입니다" );
+	 })
+	 */
+	 
+	 $('img').attr('title', function(){
+		 
+		 //src속성에서 마지막위치의 /와 마지막 .의 위치를 알아낸다 
+		var srcstr = $(this).attr('src');
+		var idx1 = srcstr.lastIndexOf("/");
+		var idx2 = srcstr.lastIndexOf(".");
+		
+		var title = srcstr.substring(idx1+1, idx2);
+		return title;
+		 
+     })
+	//////////////////////////////////    
+	    
+})
+</script>
+
+</head>
+<body>
+   <div>
+     <img src="../images/Tulips.jpg">
+     <img src="../images/산.png">
+     <img src="../images/단풍.jpg">
+     <img src="../images/대나무숲.jpg">
+     <img src="../images/풍차.jpg">
+   
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

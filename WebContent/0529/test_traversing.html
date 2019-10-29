@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.siblings * { 
+    display: block;
+    border: 2px solid lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   $('#next').click(function(){
+	   $("h2").next().css({"color": "red", "border": "2px solid red"});
+   })
+   $('#nextAll').click(function(){
+	   $("h2").nextAll().css({"color": "red", "border": "2px solid red"});
+   })
+   $('#nextUntil').click(function(){
+	   $("h2").nextUntil('h6').css({"color": "red", "border": "2px solid red"});
+   })
+  
+/////////////////////////////////////////////////////
+   $('#prev').click(function(){
+	   $("h2").prev().css({"color": "red", "border": "2px solid red"});
+   })
+   $('#prevAll').click(function(){
+	   $("h2").prevAll().css({"color": "red", "border": "2px solid red"});
+   })
+   $('#prevUntil').click(function(){
+	   $("h6").prevUntil('h2').css({"color": "red", "border": "2px solid red"});
+   })
+  /////////////////////////////////////////////////////////
+  $('#parent').click(function(){
+	  $('span').parent().css({"color": "red", "border": "2px solid red"});
+  })
+  $('#parents').click(function(){
+	  $('span').parents().css({"color": "red", "border": "2px solid red"});
+  })
+  //////////////////////////////////
+  $('#siblings').click(function(){
+	  $('h2').siblings().css({"color": "red", "border": "2px solid red"});
+  })
+  $('#siblings_p').click(function(){
+	  $('h2').siblings('p').css({"color": "red", "border": "2px solid red"});
+  })
+  //////////////////////////////////////
+  $('#add').click(function(){
+	  //$('h2, p, span').css()
+	  $('h2').add('p').add('span').css({"color": "red", "border": "2px solid red"});
+  
+  })
+    
+});
+</script>
+</head>
+<body class="siblings">
+
+ <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+  
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <h4>h4</h4>
+  <h5>h5</h5>
+  <h6>h6</h6>
+  <p>p</p>
+  <p>p</p>
+</div>
+
+<hr color='blue'>
+<button id="next">("h2")next</button>
+<button id="nextAll">("h2")nextAll</button>
+<button id="nextUntil">("h2")nextUntil('h6')</button>
+<br>
+<button id="prev">("h2")prev</button>
+<button id="prevAll">("h2")prveAll</button>
+<button id="prevUntil">("h6")nextUntil('h2')</button>
+<br>
+<button id="parent">("span")parent</button>
+<button id="parents">("span")parents</button>
+<button id="siblings">("h2")siblings</button>
+<button id="siblings_p">("h2")siblings(p)</button>
+<button id="add">("h2")add()</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

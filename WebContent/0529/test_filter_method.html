@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	  //$('p:eq(1)').css()  //기본필터
+	  //$('p').eq(1).css()  //필터메소드 
+	  
+	  //$('p:first').css()  //기본필터
+	  //$('p').first().css  //필터메소드 
+	  //////////////////////////////////////////////
+	  //p엘리먼트중 class가 intro인걸 선택 
+	  //$('p.intro').css()
+	  $('p').filter('.intro').css('background', 'yellow');
+	  
+	  //홀수번째 p엘리먼트 중 Html이 포함되어 있는걸 선택 
+	  $('p:odd').filter(':contains("Html")').css('border' , '2px solid red');
+	  
+	  //클래스가 intro가 아닌 p엘리먼트를 선택 
+	  $('p').not('.intro').css('background' , 'pink');
+	  
+})
+</script>
+
+</head>
+<body>
+  	<h1> ** 환영합니다 ** </h1>
+	<p class="pp">내이름은 jQuery 입니다 .</p>
+	<p class="intro">나는 자바 스크립트와 살고 있습니다 .</p>
+	<p class="intro">나는 자바 스크립트를 사랑합니다 .</p>
+	<p class="pp">내 친구는 Html, Ajax 입니다 .</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	/*
+	var str="Contents태그가 잇거나 없거나 모든 자식의 문자열을 가져온다\n"
+    $('div').contents().each(function(i){
+		if(typeof this.tagName == 'undefined'){
+			str += i + " 문자열===>>>>" + $(this).text()  + "\n";
+		}else {
+			str +=  i + " tagName (" +  this.tagName  +")====>>>" + $(this).html()  + "\n"; 
+			
+		}
+	})
+	*/
+	var str="Children태그가 있는  자식의 문자열을 가져온다\n";
+	$('div').children().each(function(i){
+		if(typeof this.tagName == 'undefined'){
+			str += i + " 문자열===>>>>" + $(this).text()  + "\n";
+		}else {
+			str +=  i + " tagName (" +  this.tagName  +")====>>>" + $(this).html()  + "\n"; 
+			
+		}
+	})
+	alert(str);
+})
+</script>
+<style>
+  div{
+  width :150px;
+  height : 100px;
+  padding : 10px;
+  margin : 5px;
+  border : 1px solid blue;
+  }
+
+</style>
+</head>
+<body>
+<div>A<p>P A</p><span>스판<span>안쪽스판</span></span></div>
+
+</body>
+</html>

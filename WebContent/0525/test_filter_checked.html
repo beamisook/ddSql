@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(function() {
+		/* 
+        //폼양식선택자 
+        $(':button').click(function(){   })
+		//element선택자 
+		$('#send').click(function(){   })
+		 */
+		//속성관련 선택자 
+		$('input[type=button]').click(function(){
+			var result="당신의 취미는 "; 
+        	
+			$(':checkbox:checked').each(function(i){
+				if(i > 0) result += ",";
+				
+        		result +=  $(this).val()  ;
+        	})
+        	result += "입니다";
+			alert(result);
+        })
+      /*   
+        $('input:first').attr('type')
+        $('input:first').val()
+        $('input:first').text() 
+        
+        $('input:first').attr('type','button')
+        $('input:first').val('10')
+        $('input:first').text("개나리") 
+   
+        */
+	})
+</script>
+</head>
+<body>
+   <form>
+	  취 미 :
+	 <input type="checkbox" name="hobby" value="여행" checked >여행
+	 <input type="checkbox" name="hobby" value="장기">장기
+	 <input type="checkbox" name="hobby" value="바둑">바둑
+	 <input type="checkbox" name="hobby" value="독서" >독서
+	 <input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+	 <input type="button" value="전송" id="send">
+  </form>
+ 
+</body>
+</html>
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$(function(){
+		$('div').delegate('#add','click',function(e){
+			e.preventDefault();
+			$('div:last').append("<br><input type='file'/><button id='add'>추가</button>");
+		}); 
+		
+		/* $('#add').bind('click', function(){
+			$('div').append("파일 : <input type='file'/><br>");
+		}) */
+	});
+
+})
+</script>
+<style>
+ div{
+   border : 1px solid blue;
+   width : 500px;
+ }
+</style>
+</head>
+<body>
+   <div>
+   
+      이름 :  <input type="text"><br>
+      파일 : <input type="file"> 
+            <button id="add">추가</button>   <br>
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

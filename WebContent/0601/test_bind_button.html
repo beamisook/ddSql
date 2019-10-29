@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('div').css('border', '1px solid blue').css('height', '50');
+	
+	$('button').not($('#unBut')).bind('click', function(){
+		$('div#app').append('<button>추가</button>');
+	})
+	//////////////////////////////////////////////
+	$('#unBut').bind('click', function(){
+		$('button').not($('#unBut')).unbind();
+	})
+	////////////////////////////////////////////////
+	
+})
+</script>
+</head>
+<body>
+   <div>
+     <button>버튼 1</button>
+     <button>버튼 2</button>
+     <button>버튼 3</button>
+   </div>
+   <br>
+   <button  id="unBut" >해제</button>
+   <br><br>
+   
+   <div id="app"></div>
+</body>
+</html>
+
+
+
